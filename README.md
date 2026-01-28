@@ -1,30 +1,21 @@
-<div align="center">
-  ## 📑 Índice
 
-  - [Sobre o Projeto](#-sobre-o-projeto)
-  - [Funcionalidades](#funcionalidades)
-  - [Banner](#️-banner)
-  - [Como Rodar o Projeto](#-como-rodar-o-projeto)
-  - [Principais Dependências](#-principais-dependências)
-  - [Estrutura do Projeto](#-estrutura-do-projeto)
-  - [Observações](#-observações)
-  - [Contribuição](#-contribuição)
-  - [Licença](#-licença)
-  - [Contato](#-contato)
+# Aegis AI – Vehicle Claims Agent
 
-  <img src="web/banner.png" alt="Aegis AI – Vehicle Claims Agent Banner" style="max-width: 100%;">
-  <h1>Aegis AI – Vehicle Claims Agent</h1>
-  <p>Agente inteligente para análise de sinistros automotivos via IA</p>
-  <br>
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python" alt="Python"></a>
-  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-async-green?logo=fastapi" alt="FastAPI"></a>
-  <a href="https://github.com/google/generative-ai-python"><img src="https://img.shields.io/badge/Google%20Gemini-API-yellow?logo=google" alt="Google Gemini"></a>
-  <a href="https://pypi.org/project/python-dotenv/"><img src="https://img.shields.io/badge/dotenv-env-lightgrey?logo=python"></a>
-  <a href="https://pillow.readthedocs.io/"><img src="https://img.shields.io/badge/Pillow-image-blue?logo=pillow"></a>
-  <a href="https://uvicorn.org/"><img src="https://img.shields.io/badge/Uvicorn-ASGI-black?logo=uvicorn"></a>
-</div>
+Agente inteligente para análise de sinistros automotivos via IA
 
 ---
+
+## 📑 Índice
+
+1. [Sobre o Projeto](#-sobre-o-projeto)
+2. [Funcionalidades](#-funcionalidades)
+3. [Como Rodar o Projeto](#-como-rodar-o-projeto)
+4. [Principais Dependências](#-principais-dependências)
+5. [Estrutura do Projeto](#-estrutura-do-projeto)
+6. [Observações](#-observações)
+7. [Contribuição](#-contribuição)
+8. [Licença](#-licença)
+9. [Contato](#-contato)
 
 ## 🚗 Sobre o Projeto
 
