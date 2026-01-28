@@ -1,7 +1,17 @@
 
+
 # Aegis AI – Vehicle Claims Agent
 
 Agente inteligente para análise de sinistros automotivos via IA
+
+<p>
+	<a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python" alt="Python"></a>
+	<a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-async-green?logo=fastapi" alt="FastAPI"></a>
+	<a href="https://github.com/google/generative-ai-python"><img src="https://img.shields.io/badge/Google%20Gemini-API-yellow?logo=google" alt="Google Gemini"></a>
+	<a href="https://pypi.org/project/python-dotenv/"><img src="https://img.shields.io/badge/dotenv-env-lightgrey?logo=python"></a>
+	<a href="https://pillow.readthedocs.io/"><img src="https://img.shields.io/badge/Pillow-image-blue?logo=pillow"></a>
+	<a href="https://uvicorn.org/"><img src="https://img.shields.io/badge/Uvicorn-ASGI-black?logo=uvicorn"></a>
+</p>
 
 ---
 
@@ -32,11 +42,6 @@ O **Aegis AI – Vehicle Claims Agent** é um agente inteligente que analisa ima
 
 ---
 
-## 🖼️ Banner
-
-![Banner](web/banner.png)
-
----
 
 ## ⚡ Como Rodar o Projeto
 
