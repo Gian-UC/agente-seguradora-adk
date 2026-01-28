@@ -124,24 +124,12 @@ serve -l 8080
 - O frontend é responsivo, pode ser acessado por dispositivos móveis e já inclui favicon SVG.
 - O prompt da IA força respostas sempre em português (PT/BR).
 
-> **Nota:** Caso o banner não apareça, adicione sua imagem em `web/banner.png` ou edite o README para apontar para o link desejado.
+> **Nota:** 
 - O projeto utiliza IA generativa, podendo haver limites de uso na API Gemini.
 - Para produção, recomenda-se configurar variáveis de ambiente e HTTPS.
 - O frontend é responsivo, pode ser acessado por dispositivos móveis e já inclui favicon SVG.
 - O prompt da IA força respostas sempre em português (PT/BR).
 
----
-
-## 🤝 Contribuição
-Pull requests são bem-vindos! Para sugestões, abra uma issue.
-
----
-
-## 📄 Licença
-Este projeto está sob a licença MIT.
-
----
-
 ## 📬 Contato
-- [Seu Nome](mailto:seuemail@dominio.com)
-- [LinkedIn](https://www.linkedin.com/in/seuusuario)
+- [Giancarlo Salomone](mailto:g.salomone@live.com)
+- [LinkedIn](https://www.linkedin.com/in/dev-giancarlo-salomone/)
