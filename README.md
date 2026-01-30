@@ -1,5 +1,6 @@
 
 
+
 # Aegis AI – Vehicle Claims Agent
 
 Agente inteligente para análise de sinistros automotivos via IA
@@ -11,6 +12,12 @@ Agente inteligente para análise de sinistros automotivos via IA
 	<a href="https://pypi.org/project/python-dotenv/"><img src="https://img.shields.io/badge/dotenv-env-lightgrey?logo=python"></a>
 	<a href="https://pillow.readthedocs.io/"><img src="https://img.shields.io/badge/Pillow-image-blue?logo=pillow"></a>
 	<a href="https://uvicorn.org/"><img src="https://img.shields.io/badge/Uvicorn-ASGI-black?logo=uvicorn"></a>
+
+  <!-- Badges Frontend -->
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" alt="React"></a>
+  <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff" alt="Vite"></a>
+  <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=fff" alt="ESLint"></a>
+  <a href="https://github.com/Gian-UC/agente-seguradora-adk/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Gian-UC/agente-seguradora-adk" alt="License"></a>
 </p>
 
 ---
@@ -80,17 +87,21 @@ GEMINI_API_KEY=seu_token_aqui
 uvicorn main:app --reload
 ```
 
-### 7. Execute o frontend
-- Recomenda-se rodar um servidor local para o frontend:
+
+### 7. Execute o frontend (React + Vite)
+
+#### Pré-requisitos:
+- [Node.js](https://nodejs.org/) (recomendado v18+)
+- [npm](https://www.npmjs.com/) (já incluso no Node.js)
+
+#### Passos:
 ```bash
-# Usando Python:
-cd web
-python -m http.server 8080
-# Ou usando Node.js (instale antes: https://nodejs.org/):
-npm install -g serve
-serve -l 8080
+cd web-react
+npm install
+npm run dev
 ```
-- Acesse: [http://localhost:8080](http://localhost:8080)
+
+- O frontend estará disponível em: [http://localhost:5173](http://localhost:5173)
 - O favicon SVG moderno já está incluso!
 
 ---
