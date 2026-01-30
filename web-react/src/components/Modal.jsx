@@ -7,9 +7,11 @@ export default function Modal({ open, onClose, children }) {
       position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
       background: 'rgba(0,0,0,0.3)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
     }}>
-      <div style={{ background: '#fff', borderRadius: 8, padding: 24, minWidth: 320, maxWidth: 600, boxShadow: '0 2px 16px 0 rgba(0,0,0,0.15)', position: 'relative' }}>
+      <div style={{ background: '#fff', color: '#222', borderRadius: 8, padding: 24, minWidth: 320, maxWidth: 600, boxShadow: '0 2px 16px 0 rgba(0,0,0,0.15)', position: 'relative', border: '1px solid #e0e0e0' }}>
         <button onClick={onClose} style={{ position: 'absolute', top: 8, right: 8, background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: '#888' }}>&times;</button>
-        {children}
+        <div style={{ color: '#222', fontSize: 16 }}>
+          {children}
+        </div>
       </div>
     </div>
   );

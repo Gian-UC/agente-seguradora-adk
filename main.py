@@ -1,10 +1,12 @@
 
 
+
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from PIL import Image
 import io
+from ai.analyzer import analyze_car, followup_analysis, classify_case, extract_budget_data, generate_report
 
 app = FastAPI(title="Agente de Seguradora IA")
 
@@ -14,6 +16,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# --- ENDPOINTS ---
 
 class ClassifyCaseRequest(BaseModel):
     history: list
@@ -25,6 +29,7 @@ async def classify_case_endpoint(data: ClassifyCaseRequest):
     """
     resultado = classify_case(data.history)
     return {"classification": resultado}
+
 class ExtractBudgetRequest(BaseModel):
     budget: str
 
@@ -35,6 +40,7 @@ async def extract_budget(data: ExtractBudgetRequest):
     """
     resultado = extract_budget_data(data.budget)
     return {"extracted": resultado}
+
 class ReportRequest(BaseModel):
     history: list
     last_analysis: dict = None
@@ -49,21 +55,6 @@ async def report(data: ReportRequest):
         last_analysis=data.last_analysis
     )
     return {"report": resumo}
-from fastapi import FastAPI, UploadFile, File, Form
-from fastapi.middleware.cors import CORSMiddleware
-from PIL import Image
-import io
-
-from ai.analyzer import analyze_car, followup_analysis
-
-app = FastAPI(title="Agente de Seguradora IA")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 from typing import List, Optional
 
@@ -104,7 +95,6 @@ async def analyze(
             break
 
     # Chama a resposta da IA para a pergunta do usuário
-    from ai.analyzer import followup_analysis
     answer = followup_analysis(
         last_analysis=analysis_result,
         question=question,
@@ -115,8 +105,6 @@ async def analyze(
         "analysis": analysis_result,
         "response": answer
     }
-
-from pydantic import BaseModel
 
 class FollowUpRequest(BaseModel):
     history: list

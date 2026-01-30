@@ -126,10 +126,16 @@ function App() {
     setReportLoading(true);
     setModalOpen(true);
     try {
+      // Garante que history é um array de objetos válidos
+      let historyArr = Array.isArray(messages) ? messages.map(msg => ({
+        who: msg.who || '',
+        content: msg.content || '',
+        type: msg.type || 'text'
+      })) : [];
       const response = await fetch('http://127.0.0.1:8000/report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ history: messages, last_analysis: null })
+        body: JSON.stringify({ history: historyArr, last_analysis: null })
       });
       if (!response.ok) throw new Error('Erro ao gerar resumo.');
       const data = await response.json();
@@ -275,8 +281,19 @@ function App() {
       <Modal open={classModalOpen} onClose={() => setClassModalOpen(false)}>
         <h3 style={{ marginTop: 0 }}>Classificação do Atendimento</h3>
         {classLoading ? <div>Classificando...</div> :
-          classResult ? <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit' }}>{JSON.stringify(classResult, null, 2)}</pre>
-          : null}
+          classResult ? (
+            classResult.erro ? (
+              <div style={{ color: 'red' }}>{classResult.erro}</div>
+            ) : (
+              <div style={{ fontSize: 16, color: '#222', lineHeight: 1.6 }}>
+                <b>Tipo:</b> {classResult.tipo_atendimento}<br />
+                <b>Urgente:</b> {classResult.urgente ? 'Sim' : 'Não'}<br />
+                {classResult.motivo_urgencia && classResult.motivo_urgencia.trim() !== '' && (
+                  <><b>Motivo da Urgência:</b> {classResult.motivo_urgencia}<br /></>
+                )}
+              </div>
+            )
+          ) : null}
       </Modal>
       <Alert message={alert.message} type={alert.type} onClose={() => setAlert({ message: '', type: '' })} />
       <div style={{ width: '100%', maxWidth: 600, height: 'calc(100vh - 120px)', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(20,24,40,0.98)', borderRadius: 18, boxShadow: '0 4px 32px 0 rgba(42,97,255,0.10)', padding: '32px 24px 32px 24px', position: 'relative' }}>
