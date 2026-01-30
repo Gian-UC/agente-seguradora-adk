@@ -19,11 +19,10 @@ Você é um agente de seguros inteligente. Analise o histórico do atendimento a
 }}
 Histórico:
 {historico_txt}
-Responda sempre em português (PT/BR).
+Responda sempre em português (PT/BR) e dependendo do caso, brinque um pouco.
 """
     response = client.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=prompt
+        model="models/gemini-2.5-flash", contents=prompt
     )
     text = response.text.strip()
     if text.startswith("```"):
@@ -32,6 +31,8 @@ Responda sempre em português (PT/BR).
         return json.loads(text)
     except Exception:
         return {"erro": "Não foi possível classificar o atendimento.", "resposta": text}
+
+
 def extract_budget_data(budget_text: str) -> dict:
     """
     Extrai dados estruturados de um orçamento em texto usando Gemini.
@@ -54,11 +55,10 @@ Extraia e retorne APENAS um JSON com os seguintes campos:
   "observacoes": ""
 }
 Se algum campo não estiver presente, deixe vazio ou nulo.
-Responda sempre em português (PT/BR).
+Responda sempre em português (PT/BR) e dependendo do caso, brinque um pouco..
 """
     response = client.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=prompt
+        model="models/gemini-2.5-flash", contents=prompt
     )
     text = response.text.strip()
     if text.startswith("```"):
@@ -66,7 +66,12 @@ Responda sempre em português (PT/BR).
     try:
         return json.loads(text)
     except Exception:
-        return {"erro": "Não foi possível extrair os dados do orçamento.", "resposta": text}
+        return {
+            "erro": "Não foi possível extrair os dados do orçamento.",
+            "resposta": text,
+        }
+
+
 def generate_report(history: list, last_analysis: dict = None) -> str:
     """
     Gera um resumo inteligente do atendimento usando Gemini, com base no histórico completo e análise final (opcional).
@@ -91,10 +96,11 @@ Histórico do atendimento:
         prompt += f"\nAnálise final do carro:\n{json.dumps(last_analysis, indent=2, ensure_ascii=False)}\n"
     prompt += "\nGere o resumo em português (PT/BR), de forma profissional e compreensível para o cliente."
     response = client.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=prompt
+        model="models/gemini-2.5-flash", contents=prompt
     )
     return response.text.strip()
+
+
 import os
 import json
 from dotenv import load_dotenv
@@ -105,16 +111,17 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+
 def analyze_car(image: Image.Image, orcamento: str) -> str:
     """
     Recebe a imagem do carro e o texto do orçamento
-    Retorna um JSON com a análise do agente    
-    """ 
-    
+    Retorna um JSON com a análise do agente
+    """
+
     prompt = f"""
 Você é o agente Aegis AI – Vehicle Claims Agent, especializado em análise de sinistros automotivos.
 
-Responda sempre em português (PT/BR).
+Responda sempre em português (PT/BR) e dependendo do caso, brinque um pouco..
 
 Analise a imagem do veículo e o orçamento abaixo.
 
@@ -137,13 +144,13 @@ ORÇAMENTO:
 """
 
     response = client.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=[prompt, image]
+        model="models/gemini-2.5-flash", contents=[prompt, image]
     )
     text = response.text.strip()
     if text.startswith("```"):
         text = text.replace("```json", "").replace("```", "").strip()
     return json.loads(text)
+
 
 def followup_analysis(last_analysis: dict, question: str, history: list) -> str:
     """
@@ -162,7 +169,7 @@ def followup_analysis(last_analysis: dict, question: str, history: list) -> str:
     prompt = f"""
 Você é o agente Aegis AI – Vehicle Claims Agent, especializado em análise de sinistros automotivos.
 
-Responda sempre em português (PT/BR).
+Responda sempre em português (PT/BR) e dependendo do caso, brinque um pouco..
 
 Seu objetivo é:
 - Responder de forma clara, objetiva, empática e proativa.
@@ -180,8 +187,7 @@ Agora responda à última pergunta do cliente de forma humana, sem repetir o JSO
 """
 
     response = client.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=prompt
+        model="models/gemini-2.5-flash", contents=prompt
     )
 
     return response.text.strip()
