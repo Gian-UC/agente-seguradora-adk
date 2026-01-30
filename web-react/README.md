@@ -1,16 +1,56 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Aegis AI – Vehicle Claims Agent
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- Badges Gerais -->
+![GitHub last commit](https://img.shields.io/github/last-commit/Gian-UC/agente-seguradora-adk)
+![GitHub repo size](https://img.shields.io/github/repo-size/Gian-UC/agente-seguradora-adk)
+![GitHub issues](https://img.shields.io/github/issues/Gian-UC/agente-seguradora-adk)
+![GitHub stars](https://img.shields.io/github/stars/Gian-UC/agente-seguradora-adk?style=social)
 
-## React Compiler
+<!-- Badges Frontend -->
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff)
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=fff)
+![License](https://img.shields.io/github/license/Gian-UC/agente-seguradora-adk)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Aplicação completa de atendimento inteligente para seguradoras, com análise de imagens e orçamentos, chat persistente e UX moderna.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚡ **Vite**
+- ⚛️ **React**
+- 🦄 **FastAPI** (backend)
+- 🤖 **Gemini API** (Google GenAI)
+- 🖼️ **Pillow** (PIL)
+- 📦 **jsPDF** (geração de PDF)
+- 💬 **localStorage** (persistência do chat)
+- 🎨 **CSS customizado**
+
+## Funcionalidades
+
+- Upload de múltiplas imagens
+- Análise automática de orçamento e imagens
+- Chat persistente (mesmo após atualizar a página)
+- Botão para limpar conversa
+- Resposta da IA contextual e humanizada
+- Geração de relatório em PDF
+- Classificação e extração de dados do orçamento
+
+## Como rodar o projeto
+
+### Frontend
+```bash
+cd web-react
+npm install
+npm run dev
+```
+
+### Backend
+```bash
+uvicorn main:app --reload
+```
+
+## Contribuição
+
+Pull requests são bem-vindos! Abra uma issue para discutir melhorias ou bugs.
